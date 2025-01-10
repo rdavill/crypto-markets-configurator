@@ -1,7 +1,4 @@
 import React, { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Checkbox } from '@/components/ui/checkbox';
 
 const PDFConfigurator = () => {
   const [selectedSections, setSelectedSections] = useState({
@@ -47,45 +44,6 @@ const PDFConfigurator = () => {
   };
 
   return (
-    <Card className="w-full max-w-2xl mx-auto">
-      <CardHeader>
-        <CardTitle>Configure The State of European Crypto Markets</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <div className="space-y-6">
-          <div className="space-y-4">
-            {sections.map((section) => (
-              <div 
-                key={section.id}
-                className="flex items-center space-x-3 p-4 border rounded hover:bg-gray-50"
-              >
-                <Checkbox
-                  checked={selectedSections[section.id]}
-                  onCheckedChange={() => toggleSection(section.id)}
-                  id={section.id}
-                />
-                <label 
-                  htmlFor={section.id}
-                  className="font-medium cursor-pointer"
-                >
-                  {section.label}
-                </label>
-              </div>
-            ))}
-          </div>
-
-          <div className="pt-4">
-            <Button 
-              className="w-full"
-              onClick={handleDownload}
-            >
-              Download Custom Report
-            </Button>
-          </div>
-        </div>
-      </CardContent>
-    </Card>
-  );
-};
-
-export default PDFConfigurator;
+    <div className="max-w-2xl mx-auto p-6">
+      <div className="bg-white rounded-lg shadow p-6">
+        <h1 classNa
