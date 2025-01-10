@@ -24,17 +24,35 @@ const PDFConfigurator = () => {
     const mandatoryPages = [1, 10];
     let selectedPages = [...mandatoryPages];
     
-    if (selectedSections.part1) {
-      selectedPages.push(3, 4, 5);
-    }
-    if (selectedSections.part2) {
-      selectedPages.push(6, 7);
-    }
-    if (selectedSections.part3) {
-      selectedPages.push(8, 9);
-    }
+    if (selectedSections.part1) selectedPages.push(3, 4, 5);
+    if (selectedSections.part2) selectedPages.push(6, 7);
+    if (selectedSections.part3) selectedPages.push(8, 9);
     
     return selectedPages.sort((a, b) => a - b);
   };
 
-  const handleDownload =
+  const handleDownload = () => {
+    const selectedPages = getSelectedPages();
+    alert(`Selected pages: ${selectedPages.join(', ')}`);
+  };
+
+  return (
+    <div>
+      <h1>Configure The State of European Crypto Markets</h1>
+      {sections.map((section) => (
+        <div key={section.id}>
+          <input
+            type="checkbox"
+            checked={selectedSections[section.id]}
+            onChange={() => toggleSection(section.id)}
+            id={section.id}
+          />
+          <label htmlFor={section.id}>{section.label}</label>
+        </div>
+      ))}
+      <button onClick={handleDownload}>Download Custom Report</button>
+    </div>
+  );
+};
+
+export default PDFConfigurator;
