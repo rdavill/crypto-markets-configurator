@@ -37,13 +37,4 @@ const PDFConfigurator = () => {
     return selectedPages.sort((a, b) => a - b);
   };
 
-  const handleDownload = async () => {
-    const selectedPages = getSelectedPages();
-    const pdfUrl = 'https://25446524.fs1.hubspotusercontent-eu1.net/hubfs/25446524/Research/The%20State%20of%20European%20Crypto%20Markets.pdf';
-    alert(`Selected pages: ${selectedPages.join(', ')}\nFull implementation would download a PDF with these pages from: ${pdfUrl}`);
-  };
-
-  return (
-    <div className="max-w-2xl mx-auto p-6">
-      <div className="bg-white rounded-lg shadow p-6">
-        <h1 classNa
+  const handleDownload =
